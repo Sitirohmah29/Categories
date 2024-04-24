@@ -5,7 +5,7 @@ import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5";
 const BodyUI = ({ book }) => {
   const renderStarRating = (rating) => {
     const stars = [];
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 5; i >= 1; i--) {
       if (i >= rating) {
         // Render a filled star
         stars.push(<FontAwesome5Icon key={i} name="star" size={16} color="#FFD700" />);
@@ -23,7 +23,7 @@ const BodyUI = ({ book }) => {
         <Text style={styles.rate}>{book.rating}</Text>
         <Image source={{ uri: book.img }} style={styles.image} />
         <View style={styles.details}>
-          <View style={styles.text}>{renderStarRating(book.rating)}</View>
+          <View style={styles.star}>{renderStarRating(book.rating)}</View>
           <Text style={styles.title}>{book.title}</Text>
         </View>
       </View>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginLeft: 100,
   },
   details: {
-    marginTop: 1,
+    marginBottom: 10,
     alignItems: "center",
   },
   title: {
@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#2E4A6A",
   },
-  text: {
+  star: {
     flexDirection: "row",
-    marginBottom: 5,
+    marginBottom: 4,
   },
 });
 

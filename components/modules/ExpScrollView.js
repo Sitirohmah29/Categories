@@ -5,8 +5,8 @@ import Body2UI from '../widgets/Body2UI';
 const ExpScrollView = ({ Card }) => {
     return (
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
-            {Card.map((id, index) => (
-                <Body2UI book={id} books={index} />
+            {Card.map((value, id) => (
+                <Body2UI key={id} books={value} />
             ))}
         </ScrollView>
     );

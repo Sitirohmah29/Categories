@@ -1,13 +1,20 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, TouchableNativeFeedback } from "react-native";
 
 const Body2UI = ({ books }) => {
   return (
     <View style={styles.container}>
       <Image source={{ uri: books.img}} style={styles.image} />
       <View style={styles.details}>
-        <Text style={styles.title}>{books.judul}</Text>
-        <Text style={styles.author}>{books.author}</Text>
+        <Text style={styles.title}>{books.title}</Text>
+        <Text style={styles.sinopsis}>{books.sinopsis}</Text>
+      </View>
+      <View style = {styles.button}>
+         <TouchableNativeFeedback>
+            <Text style = {styles.text}>
+               Read
+            </Text>
+         </TouchableNativeFeedback>
       </View>
     </View>
   );
@@ -28,7 +35,7 @@ const styles = StyleSheet.create({
   
   image: {
     width: 100,
-    height: 150,
+    height: '90%',
     borderRadius: 10,
     marginLeft: 20, // Diganti menjadi marginLeft agar gambar berada di sisi kiri
   },
@@ -36,16 +43,40 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 10,
+    marginBottom: 'auto',
+    marginRight: '20',
+    marginTop: 1,
+    alignItems: "center",
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#2E4A6A",
   },
-  author: {
-    fontSize: 14,
+  sinopsis: {
+    fontSize: 12,
     color: "#2E4A6A",
   },
+  button: {
+    lexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    marginTop: 'auto',
+    borderWidth: 1,
+    backgroundColor: '#eaa831',
+    borderRadius: 5,
+    borderColor: '#eaa831',
+    width: 60,
+    height: 40, 
+    alignItems: "center",
+    marginBottom: 5,
+    marginRight: 50
+ },
+ text: {
+  color: 'white',
+  alignContent: 'center'
+ }
 });
 
 export default Body2UI;
